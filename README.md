@@ -18,6 +18,44 @@ Follow these steps to install and start using POS Awesome:
     4. `bench restart`
     5. `bench --site your.site.name install-app posawesome`
     6. `bench --site your.site.name migrate`
+  
+1️⃣ ** If you get an error: error electron-store@10.1.0: The engine "node" is incompatible with this module.
+Expected version ">=20". Got "18.20.4"
+Meaning:
+POS Awesome (via its frontend dependencies) now requires Node.js ≥ 20
+Your system currently has Node.js 18.20.4
+
+2️⃣ Install Node.js 20 (Best via NVM)
+
+If you don’t have NVM, install it first:
+
+curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+
+
+Then install and use Node 20:
+
+nvm install 20
+nvm use 20
+nvm alias default 20
+
+
+Verify:
+
+node -v
+# should show v20.x.x
+
+3️⃣ Reinstall yarn dependencies
+
+From your bench directory:
+
+cd ~/frappe-bench
+bench setup requirements
+OR 
+if you were installing the app:
+
+bench install-app posawesome
+
 
 2. **Open the POS Awesome workspace**
 
